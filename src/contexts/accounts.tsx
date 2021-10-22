@@ -498,7 +498,7 @@ export function useMint(key?: string | PublicKey) {
 
     cache
       .query(connection, id, MintParser)
-      .then((acc) => setMint(acc.info as any))
+      .then((acc) => { if(acc?.info) { setMint(acc.info as any)}})
       .catch((err) => console.log(err));
 
     const dispose = cache.emitter.onCache((e) => {
@@ -607,7 +607,7 @@ const deserializeAccount = (data: Buffer) => {
 // TODO: expose in spl package
 const deserializeMint = (data: Buffer) => {
   if (data.length !== MintLayout.span) {
-    throw new Error("Not a valid Mint");
+  return null;
   }
 
   const mintInfo = MintLayout.decode(data);

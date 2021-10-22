@@ -25,6 +25,7 @@
     "@ant-design/icons": "^4.5.0",
     "@craco/craco": "^5.7.0",
     "@project-serum/serum": "^0.13.34",
+    "@reduxjs/toolkit": "^1.6.2",
     "@solana/spl-token": "^0.1.6",
     "@solana/spl-token-registry": "^0.2.203",
     "@solana/spl-token-swap": "^0.1.0",
@@ -45,8 +46,10 @@
     "jazzicon": "^1.5.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "redux-persist": "^6.0.0",
     "typescript": "^4.0.0"
   },
   "devDependencies": {
