@@ -6,7 +6,10 @@ import { AccountsProvider } from "./contexts/accounts";
 import { MarketProvider } from "./contexts/market";
 import { AppLayout } from "./components/Layout";
 
-import { FaucetView, HomeView, ReferendumView } from "./views";
+import { RootState } from "./app/store";
+import { useSelector } from "react-redux";
+
+import { FaucetView, HomeView, ProposalView } from "./views";
 import {
   getLedgerWallet,
   getMathWallet,
@@ -37,6 +40,8 @@ export function Routes() {
     []
   );
 
+    const proposals = useSelector((state: RootState) => state.proposal);
+
   return (
     <HashRouter basename={"/"}>
       <ConnectionProvider>
@@ -46,14 +51,19 @@ export function Routes() {
               <AppLayout>
                 <Switch>
                   <Route exact path="/">
-                    <HomeView />
+                    <HomeView proposals={proposals} />
                   </Route>
-                  <Route exact path="/faucet">
+                  {/* <Route exact path="/faucet">
                     <FaucetView />
-                  </Route>
-                  <Route exact path="/vote">
-                    <ReferendumView /> 
-                  </Route>
+                  </Route> */}
+                  {proposals.map((proposal) => <Route exact path={`/proposal/${proposal.id}/${proposal.headline.substring(0,7)}`}>
+                    <ProposalView
+                      id={proposal.id}
+                      headline={proposal.headline}
+                      active={proposal.active}
+                      end={proposal.end}
+                    />
+                  </Route>)}
                 </Switch>
               </AppLayout>
             </MarketProvider>

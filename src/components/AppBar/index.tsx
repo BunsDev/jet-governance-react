@@ -12,7 +12,7 @@ import { useWallet } from "@solana/wallet-adapter-react";
 export const AppBar = (props: { left?: JSX.Element; right?: JSX.Element }) => {
   const { connected } = useWallet();
   const TopBar = (
-    <div className="App-Bar-right">
+    <div className="nav-bar-right">
       <WalletMultiButton type="primary" />
       <div style={{ margin: 5 }} />
       {connected ? <WalletDisconnectButton type="ghost" /> : null}

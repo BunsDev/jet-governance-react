@@ -3,6 +3,9 @@ import { PublicKey } from "@solana/web3.js";
 export const WRAPPED_SOL_MINT = new PublicKey(
   "So11111111111111111111111111111111111111112"
 );
+export const JET_TOKEN_MINT = new PublicKey(
+  "JET6zMJWkCN9tpRT2v2jfAmm5VnQFDpUBCyaKojmGtz"
+);
 export let TOKEN_PROGRAM_ID = new PublicKey(
   "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
 );

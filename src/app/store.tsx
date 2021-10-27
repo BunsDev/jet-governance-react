@@ -4,10 +4,10 @@ import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import thunk from 'redux-thunk';
 
-import counterReducer from '../views/home/homeSlice';
+import proposalReducer from '../views/home/homeSlice';
 
 const reducers = combineReducers({
-  counter: counterReducer,
+  proposal: proposalReducer,
 });
 
 const persistConfig = {

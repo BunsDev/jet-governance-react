@@ -2,7 +2,7 @@
 @import "./ant-custom.less";
 
 /* Text */
-h1, h2, p, th, td, span {
+h1, h2, p, th, td {
   position: relative;
 	margin: unset;
 	text-decoration: none;
@@ -67,14 +67,27 @@ span {
 
 .ant-layout-header {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  height: var(--nav-height);
 
   div {
     display: flex;
-    flex-direction: column;
   }
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Bicyclette', sans-serif;
+  font-weight: 700;
+  color: hsla(0, 0%, 0%, 1);
+  letter-spacing: 0.1em;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 17px;
+  text-align: left;
 }
 
 h1.ant-typography, h2.ant-typography, h3.ant-typography, h4.ant-typography, h5.ant-typography {
@@ -90,33 +103,18 @@ h1.ant-typography, h2.ant-typography, h3.ant-typography, h4.ant-typography, h5.a
   }
 }
 
-.ant-table {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  color: rgba(255, 255, 255, 0.85);
-  font-variant: tabular-nums;
-  line-height: 1.5715;
-  list-style: none;
-  font-feature-settings: 'tnum', "tnum";
-  position: relative;
-  z-index: 0;
-  font-size: 14px;
-  background: var(--white);
-  border-radius: 2px;
-}
-
-.App-Bar {
+.nav-bar {
   position: fixed;
   left: 0;
   top: 0;
   z-index: 100;
-  height: calc(100vh - var(--spacing-lg));
-  padding: calc(var(--spacing-lg)/2) 0;
-  width: var(--nav-width);
-  box-shadow: var(--neu-shadow);
-  background: var(--white);
+  width: 100%;
+  background: var(--gradient);
   z-index: 1000;
+
+  img {
+    height: 62px;
+  }
 
   .ant-menu-horizontal {
     border-bottom-color: transparent;
@@ -144,7 +142,7 @@ h1.ant-typography, h2.ant-typography, h3.ant-typography, h4.ant-typography, h5.a
   }
 }
 
-.App-Bar-left {
+.nav-bar-left {
   box-sizing: border-box;
   margin: 0px;
   min-width: 0px;
@@ -155,7 +153,7 @@ h1.ant-typography, h2.ant-typography, h3.ant-typography, h4.ant-typography, h5.a
   width: fit-content;
 }
 
-.App-Bar-right {
+.nav-bar-right {
   display: flex;
   flex-direction: row;
   -webkit-box-align: center;
@@ -202,6 +200,107 @@ em {
   display: flex;
   overflow: auto;
   background-color: var(--white);
+  margin-top: var(--nav-height);
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  grid-template-rows: auto;
+
+  .main-content {
+    grid-column: 3 e("/") 23;
+    padding-top: 40px;
+  }
+
+  .stake-inset {
+    height: 144px;
+    background: #E0E7F2;
+    box-shadow: inset 0px -1px 2px rgba(255, 255, 255, 0.75), inset 0px 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin-bottom: 82px;
+    width: 100%;
+  }
+
+  .show-proposals {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .proposal-card {
+    height: 231px;
+    width: 231px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 7px;
+    background: var(--white);
+    color: var(--black);
+    padding: 17px 11px 9px 19px;
+    margin: 11px 22px 11px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-size: 10px;
+    text-align: left !important;
+
+    .header {
+      line-height: 12px;
+      text-transform: uppercase;
+      font-weight: bold;
+      padding-bottom: 7px;
+    }
+
+
+    .headline {
+      font-family: Helvetica Neue;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 27px;
+    }
+
+    .details {
+      display: flex;
+      .status {
+        font-family: "Bicyclette", sans-serif;
+        text-transform: uppercase;
+        margin-bottom: -3px;
+      }
+      .active {
+        color: var(--status-active);
+      }
+      .inactive {
+        color: var(--status-inactive);
+      }
+      .rejected {
+        color: var(--status-rejected);
+      }
+      .passed {
+        color: var(--status-passed);
+      }
+      div {
+        padding-right: 9px;
+        display: flex;
+        align-items: center;
+        i {
+          margin: 0;
+          padding-right: 7px;
+          font-size: 6px;
+          margin-bottom: 3px;
+        }
+      }
+    }
+  }
+
+  .proposal-card.active {
+    background: var(--gradient);
+    color: var(--white);
+  }
+}
+
+.proposal {
+  span {
+    margin-top: 35px;
+
+  }
 }
 
 .flexColumn {

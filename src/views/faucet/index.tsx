@@ -5,6 +5,7 @@ import { notify } from "../../utils/notifications";
 import { ConnectButton } from "./../../components/ConnectButton";
 import { LABELS } from "../../constants";
 import { useWallet } from "@solana/wallet-adapter-react";
+import { Link } from "react-router-dom";
 
 export const FaucetView = () => {
   const connection = useConnection();
@@ -38,7 +39,11 @@ export const FaucetView = () => {
         <ConnectButton type="primary" onClick={handleRequestAirdrop}>
           {LABELS.GIVE_SOL}
         </ConnectButton>
+        <ConnectButton type="primary" onClick={handleRequestAirdrop}>
+          GIVE ME JET
+        </ConnectButton>
       </div>
+      <Link to="/">Go back home</Link>
     </div>
   );
 };

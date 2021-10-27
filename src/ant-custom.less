@@ -49,7 +49,13 @@
   
     --input-color: rgba(26, 73, 94, 0.7);
     --gradient: linear-gradient(135deg, var(--jet-green) 25%, var(--jet-blue) 85%);
-  
+ 
+    --status-active: hsla(140, 84%, 84%, 1);
+    --status-inactive: hsla(0, 4%, 71%, 1);
+    --status-rejected: hsla(0, 73%, 75%, 1);
+    --status-passed: hsla(163, 44%, 43%, 1);
+
+    
     --light-shadow: rgba(255, 255, 255, 0.8);
     --dark-shadow: rgba(175, 186, 214, 0.8);
     --neu-shadow: -1.75px -1.75px 3.5px var(--light-shadow), 1.75px 1.75px 3.5px var(--dark-shadow);
@@ -66,7 +72,7 @@
   
     --disabled-opacity: 0.85;
   
-    --nav-width: 60px;
+    --nav-height: 89px;
     --mobile-nav-height: 60px;
   
     --spacing-xs: 4px;
@@ -80,15 +86,6 @@
     --btn-radius: 7px;
     --btn-padding: 7px 20px 5px 20px;
     --secondary-btn-padding: 7px 10px 5px 10px;
-  
-    /* Slider variables */
-    --range-slider-bg: rgba(255, 255, 255, 0.25);
-    --range-slider: var(--white);
-    --range-handle-inactive: var(--white);
-    --range-handle: var(--white);
-    --range-handle-focus: var(--white);
-    --range-handle-border: var(--jet-green);
-    --range-float-text: var(--black);
   }
   ::-webkit-scrollbar {
     display: none !important;
@@ -102,7 +99,5 @@
     overflow-x: hidden;
     letter-spacing: 0.25px;
     width: calc(100% - var(--nav-width));
-    min-height: calc(100vh - 30px);
-    padding-bottom: 30px;
     margin-left: var(--nav-width);
   }
